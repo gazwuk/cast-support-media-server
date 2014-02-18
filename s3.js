@@ -29,6 +29,7 @@ var allowCrossDomain = function(req, res, next) {
 app.configure(function() {
     app.use(allowCrossDomain);
     app.use(express.static(__dirname));
+    app.use(express.directory(__dirname));
 });
 
 app.listen(port);
