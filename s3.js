@@ -15,7 +15,7 @@
  **/
 var express = require("express");
 var app     = express();
-var port    = 8080;
+var serveIndex = require('serve-index')
 
 //CORS middleware
 var allowCrossDomain = function(req, res, next) {
@@ -27,6 +27,5 @@ var allowCrossDomain = function(req, res, next) {
 
 app.use(allowCrossDomain);
 app.use(express.static(__dirname));
-app.use(express.directory(__dirname));
-
-app.listen(port);
+app.use(serveIndex(__dirname));
+app.listen(8080);
